@@ -1,5 +1,7 @@
+import UploadwayAudio from "@/components/uploadway/audio";
+
 const UploadAudioPage = () => {
-  return <UploadAudioPage />;
+  return <UploadwayAudio />;
 };
 
 export default UploadAudioPage;

@@ -1,5 +1,7 @@
+import UploadwayVideo from "@/components/uploadway/video";
+
 const UploadVideoPage = () => {
-  return <UploadVideoPage />;
+  return <UploadwayVideo />;
 };
 
 export default UploadVideoPage;

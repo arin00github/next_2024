@@ -48,6 +48,7 @@ const DragDropComponent = () => {
   };
 
   const dragEnd = () => {
+    setDragTarget(null);
     setIsDragging(false);
   };
 

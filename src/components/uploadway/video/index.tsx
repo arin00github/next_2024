@@ -1,4 +1,5 @@
 "use client";
+import { Title } from "@/components/common";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ const VideoBox = styled.div`
   }
 `;
 
-const UploadwayAudio = () => {
+const UploadwayVideo = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const [playSecond, setPlaySecond] = useState<number>(0);
@@ -23,7 +24,9 @@ const UploadwayAudio = () => {
   const [recordStatus, setRecordStatus] = useState("prepare");
   const [videoUrl, setVideoUrl] = useState<string | undefined>(undefined);
 
-  // 카메라 스트림 가져오기
+  /**
+   * @description 카메라,오디오 권한 확인
+   */
   const getCameraStream = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -89,6 +92,7 @@ const UploadwayAudio = () => {
 
   return (
     <VideoBox>
+      <Title>Upload Video & Webcam</Title>
       {recordStatus === "complete" && videoUrl && (
         <video src={videoUrl} controls></video>
       )}
@@ -97,4 +101,4 @@ const UploadwayAudio = () => {
   );
 };
 
-export default UploadwayAudio;
+export default UploadwayVideo;
