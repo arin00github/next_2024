@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+2024년 상반기 동안 작업했던 내용들을 복습 및 기록하는 프로젝트
+
+### Resource Upload
+
+1. 리소스 업로드 (이미지)
+2. 리소스 업로드 (오디오)
+3. 리소스 업로드 (영상)
+4. fs 라이브러리 사용방법
+
+### MongoDB
+
+1. aggretate 사용방법
+2. 다양한 함수 사용방법
 
 ```bash
 npm run dev
