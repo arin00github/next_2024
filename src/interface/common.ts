@@ -10,3 +10,8 @@ export interface MongoObject {
   client: MongoClient | null;
   db: Db | null;
 }
+
+export type LabelItemType = {
+  label: string;
+  value: string;
+};

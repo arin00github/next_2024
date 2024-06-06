@@ -4,19 +4,11 @@ import {
   useGetQueryDataQuery,
   usePostAddDataMutation,
 } from "@/redux/api/dbqueryApi";
-import styled from "styled-components";
+import { Button, Layout, Space, Table } from "antd";
 
-const SContainer = styled.div`
-  .btnWrap {
-    button {
-      border: none;
-      outline: none;
-      padding: 8px 20px;
-      color: white;
-      background-color: darkblue;
-    }
-  }
-`;
+const { Content } = Layout;
+
+const { Column, ColumnGroup } = Table;
 
 const DbQueryComponent = () => {
   const { data } = useGetQueryDataQuery(null);
@@ -33,11 +25,20 @@ const DbQueryComponent = () => {
   };
 
   return (
-    <SContainer>
-      <div className="btnWrap">
-        <button onClick={handleClickAdd}>Add Data</button>
-      </div>
-    </SContainer>
+    <Content>
+      <Space>
+        <Button onClick={handleClickAdd}>Add Data</Button>
+      </Space>
+      <Space>
+        <Table dataSource={data} loading={!data}>
+          <Column title="code" dataIndex="code" />
+          <ColumnGroup title="review">
+            <Column dataIndex="like" />
+            <Column dataIndex="dislike" />
+          </ColumnGroup>
+        </Table>
+      </Space>
+    </Content>
   );
 };
 

@@ -1,48 +1,32 @@
 "use client";
 
-import { MenuArray } from "@/constant/menu";
-import Link from "next/link";
-import styled from "styled-components";
+import { Layout, Menu } from "antd";
+import { useRouter } from "next/navigation";
 
-const SAside = styled.div`
-  width: 240px;
-  height: 100vh;
-  background-color: #040031;
-  color: white;
-  .head {
-    height: 60px;
-    padding: 20px;
-  }
+const { Sider, Content } = Layout;
 
-  .body {
-    .navlist {
-      display: flex;
-      flex-direction: column;
-      .navItem {
-        padding: 0 30px;
-        height: 36px;
-        line-height: 36px;
-      }
-    }
-  }
-`;
+export const MenuArray = [
+  { label: "image upload", key: "/uploadway/image" },
+  { label: "audio upload", key: "/uploadway/audio" },
+  { label: "video upload", key: "/uploadway/video" },
+  { label: "mongodb query", key: "/dbquery" },
+  { label: "drag and drop", key: "/dragdrop" },
+];
 
-const Aside = () => {
+const AsideContainer = () => {
+  const router = useRouter();
+
   return (
-    <SAside>
-      <div className="body">
-        <div className="navlist">
-          {MenuArray.map((menu) => {
-            return (
-              <div key={menu.key} className="navItem">
-                <Link href={menu.url}>{menu.label}</Link>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </SAside>
+    <Sider style={{ height: "100vh", background: "white" }}>
+      <Menu
+        items={MenuArray}
+        onClick={(info) => {
+          console.log("info", info);
+          router.push(info.key);
+        }}
+      />
+    </Sider>
   );
 };
 
-export default Aside;
+export default AsideContainer;
