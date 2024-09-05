@@ -1,7 +1,7 @@
 "use client";
 
+import { Link, useRouter } from "@/i18n/route";
 import { Layout, Menu } from "antd";
-import { useRouter } from "next/navigation";
 
 const { Sider, Content } = Layout;
 
@@ -21,10 +21,14 @@ const AsideContainer = () => {
       <Menu
         items={MenuArray}
         onClick={(info) => {
-          console.log("info", info);
           router.push(info.key);
         }}
       />
+      <div>
+        <div>
+          <Link href="/language">Language</Link>
+        </div>
+      </div>
     </Sider>
   );
 };

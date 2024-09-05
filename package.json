@@ -3,19 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 7007",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scan:i18n": "i18next-scanner --config i18next-scanner.config.js",
+    "upload:i18n": "npm run scan:i18n && node src/translation/upload.js",
+    "download:i18n": "node src/translation/download.js",
+    "translation": "npm run download:i18n"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "antd": "^5.16.5",
     "axios": "^1.6.8",
     "bcryptjs": "^2.4.3",
+    "google-auth-library": "^9.14.1",
+    "i18next": "^23.14.0",
     "mongodb": "^6.5.0",
     "next": "14.2.1",
     "next-auth": "^4.24.7",
+    "next-intl": "^3.19.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.1.0",
@@ -29,6 +36,9 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
+    "google-spreadsheet": "^4.1.4",
+    "i18next-scanner": "^4.5.0",
+    "i18next-scanner-typescript": "^1.2.1",
     "typescript": "^5"
   }
 }
